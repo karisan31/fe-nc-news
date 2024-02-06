@@ -1,8 +1,8 @@
+import "./NavigationLink.css";
 import { Link } from "react-router-dom";
 
 export default function NavigationLink(props) {
   const { linkDestination } = props;
-  console.log(linkDestination);
 
   return (
     <>

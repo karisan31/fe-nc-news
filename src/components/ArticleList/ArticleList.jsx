@@ -1,6 +1,7 @@
+import styles from "./ArticleList.module.css";
 import { useState, useEffect } from "react";
-import { getArticles } from "../utils/api";
-import ArticleCard from "./ArticleCard";
+import { getArticles } from "../../utils/api";
+import ArticleCard from "../ArticleCard/ArticleCard";
 
 export default function ArticleList() {
   const [articlesData, setArticlesData] = useState(null);
@@ -15,16 +16,16 @@ export default function ArticleList() {
 
   return (
     <>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">NC Articles</h1>
-          <p class="lead">
+      <div className="jumbotron jumbotron-fluid">
+        <div className="container">
+          <h1 className="display-4">NC Articles</h1>
+          <p className="lead">
             This is a database for all articles published by our avid
             story-tellers. Read away!
           </p>
         </div>
       </div>
-      <section className="article-list">
+      <section className={styles.articleList}>
         {isLoading ? (
           <h2>Loading....</h2>
         ) : (

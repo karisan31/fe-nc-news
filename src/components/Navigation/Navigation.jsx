@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import NavigationLink from "./NavigationLink";
+import NavigationLink from "../NavigationLink/NavigationLink";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
