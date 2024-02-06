@@ -1,3 +1,4 @@
+import styles from "./ArticleCard.module.css";
 import { Link } from "react-router-dom";
 
 export default function ArticleCard(props) {
@@ -6,10 +7,10 @@ export default function ArticleCard(props) {
   return (
     <>
       <Link to={`/articles/${articleID}`}>
-        <section className="article-card">
-          <h3 className="article-card-title">{title}</h3>
+        <section className={styles.articleCard}>
+          <h3 className={styles.articleCardTitle}>{title}</h3>
           <br />
-          <img className="article-card-img" src={image} alt={title} />
+          <img className={styles.articleCardImage} src={image} alt={title} />
           <br />
           <p>Author: {author}</p>
         </section>
