@@ -15,7 +15,15 @@ export default function ArticleList() {
 
   return (
     <>
-      <h2 className="article-list-header">NC Articles</h2>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">NC Articles</h1>
+          <p class="lead">
+            This is a database for all articles published by our avid
+            story-tellers. Read away!
+          </p>
+        </div>
+      </div>
       <section className="article-list">
         {isLoading ? (
           <h2>Loading....</h2>
