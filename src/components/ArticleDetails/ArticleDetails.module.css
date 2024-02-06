@@ -1,25 +1,29 @@
-.singleArticle{
-    text-align: center;
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  .singleArticleTitle{
-    text-align: left;
-  }
-  
-  .singleArticleDetails{
-    text-align: left;
-  }
-  
-  .singleArticleImage{
-    max-width: 100%;
-    height:auto;
-    margin-bottom: 20px;
-  }
-  
-  .singleArticleBody{
-    text-align: justify;
-    line-height: 1.6;
-  }
+.singleArticle {
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.singleArticleTitle {
+  text-align: left;
+}
+
+.singleArticleDetails {
+  text-align: left;
+}
+
+.singleArticleImage {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.singleArticleBody {
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.commentsButton {
+  padding: 10px;
+}

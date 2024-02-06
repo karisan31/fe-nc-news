@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
 import ArticleList from "./components/ArticleList/ArticleList";
 import ArticleDetails from "./components/ArticleDetails/ArticleDetails";
@@ -10,7 +9,6 @@ import Home from "./components/Home/Home";
 function App() {
   return (
     <>
-      <Header />
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />

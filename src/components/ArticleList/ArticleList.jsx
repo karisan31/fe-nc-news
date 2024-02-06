@@ -19,6 +19,7 @@ export default function ArticleList() {
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
           <h1 className="display-4">NC Articles</h1>
+          <hr className="my-4" />
           <p className="lead">
             This is a database for all articles published by our avid
             story-tellers. Read away!

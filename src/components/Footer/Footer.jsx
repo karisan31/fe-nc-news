@@ -1,11 +1,12 @@
-import styles from "./Footer.module.css";
-
 export default function Footer() {
   return (
-    <footer className={styles.mainFooter}>
-      <p className={styles.footerText}>
-        &copy; {new Date().getFullYear()} NC News
-      </p>
+    <footer className="bg-dark py-4 mt-5">
+      <div className="container text-light text-center">
+        <p className="display-6 mb-2">NC News</p>
+        <small className="text-white-50">
+          Copyright &copy; {new Date().getFullYear()}. All rights reserved.
+        </small>
+      </div>
     </footer>
   );
 }

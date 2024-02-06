@@ -1,0 +1,17 @@
+.card {
+  padding: 10px;
+}
+
+.header {
+  background-color: maroon;
+  color: rgb(255, 255, 255);
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.content {
+  background-color: bisque;
+}
+
+.footer {
+  background-color: tan;
+}

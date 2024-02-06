@@ -15,9 +15,9 @@ export default function Navigation() {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="bg-body-tertiary" sticky="top">
         <Container>
-          <Navbar.Brand href="#home">NC News</Navbar.Brand>
+          <Navbar.Brand>NC News</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">

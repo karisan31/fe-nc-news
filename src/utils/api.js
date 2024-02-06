@@ -6,7 +6,18 @@ const ncNewsData = axios.create({
 
 export const getArticles = (articleID) => {
   const url = articleID ? `articles/${articleID}` : `articles`;
-  return ncNewsData.get(url).then(({ data }) => {
+  return ncNewsData
+    .get(url)
+    .then(({ data }) => {
+      return { data };
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+
+export const getComments = (articleID) => {
+  return ncNewsData.get(`articles/${articleID}/comments`).then(({ data }) => {
     return { data };
   });
 };
