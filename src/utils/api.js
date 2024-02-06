@@ -1,9 +1,12 @@
 import axios from "axios";
 
-export const getArticles = () => {
-  return axios
-    .get("https://backend-recieve-nc-news.onrender.com/api/articles")
-    .then(({ data }) => {
-      return { data };
-    });
+const ncNewsData = axios.create({
+  baseURL: "https://backend-recieve-nc-news.onrender.com/api/",
+});
+
+export const getArticles = (articleID) => {
+  const url = articleID ? `articles/${articleID}` : `articles`;
+  return ncNewsData.get(url).then(({ data }) => {
+    return { data };
+  });
 };

@@ -21,10 +21,10 @@ export default function ArticleList() {
           <h2>Loading....</h2>
         ) : (
           articlesData.map((article) => {
-            // console.dir(article);
             return (
               <ArticleCard
                 key={article.article_id}
+                articleID={article.article_id}
                 title={article.title}
                 image={article.article_img_url}
                 author={article.author}
