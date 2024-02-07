@@ -21,3 +21,14 @@ export const getComments = (articleID) => {
     return { data };
   });
 };
+
+export const patchVotes = (articleID, updateVote) => {
+  return ncNewsData
+    .patch(`articles/${articleID}`, updateVote)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      throw err;
+    });
+};

@@ -7,6 +7,8 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import CommentList from "../CommentList/CommentList";
 import Error from "../Error/Error";
+import Loading from "../Loading/Loading";
+import Votes from "../Votes/Votes";
 
 export default function ArticleDetails() {
   const [article, setArticle] = useState({});
@@ -40,7 +42,7 @@ export default function ArticleDetails() {
     <>
       <section>
         {isLoading ? (
-          <h2>Loading...</h2>
+          <Loading />
         ) : (
           <section className={styles.singleArticle}>
             <h2 className={styles.singleArticleTitle}>{article.title}</h2>
@@ -53,25 +55,30 @@ export default function ArticleDetails() {
             />
             <p className={styles.singleArticleBody}>{article.body}</p>
             <br />
-            <p>Comment Count: {article.comment_count}</p>
-            <ButtonGroup className={styles.commentsButton}>
-              {radios.map((radio, idx) => (
-                <ToggleButton
-                  key={idx}
-                  id={`radio-${idx}`}
-                  type="radio"
-                  variant={idx ? "outline-success" : "outline-danger"}
-                  name="radio"
-                  value={radio.value}
-                  checked={radioValue === radio.value}
-                  onChange={(e) => {
-                    setRadioValue(+e.currentTarget.value);
-                  }}
-                >
-                  {radio.name}
-                </ToggleButton>
-              ))}
-            </ButtonGroup>
+            <p className={styles.commentCount}>
+              Comment Count: {article.comment_count}
+            </p>
+            <div className={styles.buttonsContainer}>
+              <ButtonGroup className={styles.commentsButton}>
+                {radios.map((radio, idx) => (
+                  <ToggleButton
+                    key={idx}
+                    id={`radio-${idx}`}
+                    type="radio"
+                    variant={idx ? "outline-success" : "outline-danger"}
+                    name="radio"
+                    value={radio.value}
+                    checked={radioValue === radio.value}
+                    onChange={(e) => {
+                      setRadioValue(+e.currentTarget.value);
+                    }}
+                  >
+                    {radio.name}
+                  </ToggleButton>
+                ))}
+              </ButtonGroup>
+              <Votes votes={article.votes} articleID={article.article_id} />
+            </div>
           </section>
         )}
         {radioValue ? (

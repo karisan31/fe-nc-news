@@ -24,6 +24,29 @@
   line-height: 1.6;
 }
 
+.commentCount {
+  padding-left: 77px;
+  text-align: left;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 600px;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
 .commentsButton {
-  padding: 10px;
+  padding-left: 10px;
+}
+
+@media (max-width: 585px) {
+  .buttonsContainer {
+    flex-direction: column;
+  }
+  .commentCount {
+    text-align: center;
+    padding-left: 0px;
+  }
 }
