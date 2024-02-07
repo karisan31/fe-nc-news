@@ -77,7 +77,7 @@ export default function ArticleDetails() {
                   </ToggleButton>
                 ))}
               </ButtonGroup>
-              <Votes votes={article.votes} />
+              <Votes votes={article.votes} articleID={article.article_id} />
             </div>
           </section>
         )}

@@ -37,6 +37,10 @@
   margin: 0 auto;
 }
 
+.commentsButton {
+  padding-left: 10px;
+}
+
 @media (max-width: 585px) {
   .buttonsContainer {
     flex-direction: column;
@@ -45,8 +49,4 @@
     text-align: center;
     padding-left: 0px;
   }
-}
-
-.commentsButton {
-  padding-left: 10px;
 }

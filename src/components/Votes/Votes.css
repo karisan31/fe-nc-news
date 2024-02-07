@@ -1,3 +1,10 @@
 .votes-buttons {
   padding-top: 5px;
 }
+
+@media (width: 585px) {
+  .votes-buttons {
+    justify-content: center;
+    padding-top: 5px;
+  }
+}
