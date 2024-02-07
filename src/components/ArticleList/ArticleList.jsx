@@ -2,6 +2,7 @@ import styles from "./ArticleList.module.css";
 import { useState, useEffect } from "react";
 import { getArticles } from "../../utils/api";
 import ArticleCard from "../ArticleCard/ArticleCard";
+import Loading from "../Loading/Loading";
 
 export default function ArticleList() {
   const [articlesData, setArticlesData] = useState(null);
@@ -28,7 +29,7 @@ export default function ArticleList() {
       </div>
       <section className={styles.articleList}>
         {isLoading ? (
-          <h2>Loading....</h2>
+          <Loading />
         ) : (
           articlesData.map((article) => {
             return (

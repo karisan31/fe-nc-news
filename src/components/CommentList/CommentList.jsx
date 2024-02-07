@@ -1,7 +1,9 @@
+import "./CommentList.css";
 import { useEffect, useState } from "react";
 import { getComments } from "../../utils/api";
 import { useParams } from "react-router-dom";
 import CommentCard from "../CommentCard/CommentCard";
+import Loading from "../Loading/Loading";
 
 export default function CommentList() {
   const [comments, setComments] = useState(null);
@@ -20,10 +22,10 @@ export default function CommentList() {
     <>
       <section>
         {isLoading ? (
-          <h2>Loading...</h2>
+          <Loading />
         ) : (
           <>
-            <h3>Comments:</h3>
+            <h3 className="comments-header">Comments:</h3>
             {comments.map((comment) => {
               return (
                 <CommentCard
