@@ -56,7 +56,7 @@ export default function ArticleDetails() {
             />
             <p className={styles.singleArticleBody}>{article.body}</p>
             <br />
-            <CommentPost />
+            <CommentPost articleID={article.article_id} />
             <br />
             <p className={styles.commentCount}>
               Comment Count: {article.comment_count}

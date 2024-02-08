@@ -11,6 +11,7 @@
   height: 200px;
   max-height: 200px;
   display: inline-block;
+  position: relative;
 }
 
 .username {
@@ -20,9 +21,30 @@
   justify-content: center;
   margin-left: 30px;
   margin-right: 30px;
-  margin-bottom: 10px;
+  /* margin-bottom: 15px; */
 }
 
 .avatar {
-  max-width: 50px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 40px;
+  min-width: 40px;
+  max-height: 70px;
+  max-width: 70px;
+}
+
+.login-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #3498db;
+  color: #fff;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
+  }
 }

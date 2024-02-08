@@ -4,6 +4,7 @@ import { getComments } from "../../utils/api";
 import { useParams } from "react-router-dom";
 import CommentCard from "../CommentCard/CommentCard";
 import Loading from "../Loading/Loading";
+import Error from "../Error/Error";
 
 export default function CommentList() {
   const [comments, setComments] = useState(null);
@@ -19,36 +20,36 @@ export default function CommentList() {
         setIsLoading(false);
       })
       .catch((err) => {
-        setError("Something went wrong, please try again.");
+        setError({ msg: "Something went wrong, please try again." });
       });
   }, [article_id]);
 
+  if (error) {
+    return <Error error={error} />;
+  }
+
   return (
     <>
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        <section>
-          {isLoading ? (
-            <Loading />
-          ) : (
-            <>
-              <h3 className="comments-header">Comments:</h3>
-              {comments.map((comment) => {
-                return (
-                  <CommentCard
-                    key={comment.comment_id}
-                    author={comment.author}
-                    body={comment.body}
-                    votes={comment.votes}
-                    created_at={comment.created_at}
-                  />
-                );
-              })}
-            </>
-          )}
-        </section>
-      )}
+      <section>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <h3 className="comments-header">Comments:</h3>
+            {comments.map((comment) => {
+              return (
+                <CommentCard
+                  key={comment.comment_id}
+                  author={comment.author}
+                  body={comment.body}
+                  votes={comment.votes}
+                  created_at={comment.created_at}
+                />
+              );
+            })}
+          </>
+        )}
+      </section>
     </>
   );
 }

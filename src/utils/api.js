@@ -51,7 +51,7 @@ export const getUsers = () => {
 
 export const postComment = (articleID, newComment) => {
   return ncNewsData
-    .patch(`articles/${articleID}/comments`, newComment)
+    .post(`articles/${articleID}/comments`, newComment)
     .then((response) => {
       return response.data;
     })

@@ -7,13 +7,22 @@ import Loading from "../Loading/Loading";
 export default function ArticleList() {
   const [articlesData, setArticlesData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getArticles().then(({ data }) => {
-      setArticlesData(data.articles);
-      setIsLoading(false);
-    });
+    getArticles()
+      .then(({ data }) => {
+        setArticlesData(data.articles);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError({ msg: "Something went wrong, please try again." });
+      });
   }, []);
+
+  if (error) {
+    return <Error error={error} />;
+  }
 
   return (
     <>
@@ -27,23 +36,27 @@ export default function ArticleList() {
           </p>
         </div>
       </div>
-      <section className={styles.articleList}>
-        {isLoading ? (
-          <Loading />
-        ) : (
-          articlesData.map((article) => {
-            return (
-              <ArticleCard
-                key={article.article_id}
-                articleID={article.article_id}
-                title={article.title}
-                image={article.article_img_url}
-                author={article.author}
-              />
-            );
-          })
-        )}
-      </section>
+      {error ? (
+        <p>{error}</p>
+      ) : (
+        <section className={styles.articleList}>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            articlesData.map((article) => {
+              return (
+                <ArticleCard
+                  key={article.article_id}
+                  articleID={article.article_id}
+                  title={article.title}
+                  image={article.article_img_url}
+                  author={article.author}
+                />
+              );
+            })
+          )}
+        </section>
+      )}
     </>
   );
 }

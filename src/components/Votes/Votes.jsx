@@ -1,9 +1,10 @@
-import { useState } from "react";
 import "./Votes.css";
+import { useState } from "react";
+import { patchVotes } from "../../utils/api";
+import Error from "../Error/Error";
 
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { patchVotes } from "../../utils/api";
 
 export default function Votes(props) {
   const { articleID, votes } = props;
@@ -15,7 +16,7 @@ export default function Votes(props) {
     setVoteCount((voteCount) => voteCount + 1);
     patchVotes(articleID, { inc_votes: 1 }).catch((err) => {
       setVoteCount((voteCount) => voteCount - 1);
-      setError("Something went wrong, please try again.");
+      setError({ msg: "Something went wrong, please try again." });
     });
   };
 
@@ -23,7 +24,7 @@ export default function Votes(props) {
     setVoteCount((voteCount) => voteCount - 1);
     patchVotes(articleID, { inc_votes: -1 }).catch((err) => {
       setVoteCount((voteCount) => voteCount + 1);
-      setError("Something went wrong, please try again.");
+      setError({ msg: "Something went wrong, please try again." });
     });
   };
 
@@ -42,7 +43,7 @@ export default function Votes(props) {
           </Button>
         </ButtonGroup>
       </div>
-      {error ? <p>{error}</p> : null}
+      {!error ? null : <Error error={error} />}
     </>
   );
 }
