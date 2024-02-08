@@ -21,16 +21,19 @@ function CommentPost(props) {
       username: loggedInUser.username,
       body: comment,
     };
-    console.log(newComment);
-    postComment(articleID, newComment).catch((err) => {
-      setSuccessMessage(null);
-      setError({ msg: "Something went wrong, please try again." });
-    });
+    postComment(articleID, newComment)
+      .then(() => {
+        setComment("");
+      })
+      .catch((err) => {
+        setSuccessMessage(null);
+        setError({ msg: "Something went wrong, please try again." });
+      });
   };
 
   return (
     <>
-      <form className="comment-form">
+      <form className="comment-form" onSubmit={handleComment}>
         <FloatingLabel controlId="floatingTextarea2" label="Add a comment...">
           <Form.Control
             as="textarea"
@@ -42,7 +45,7 @@ function CommentPost(props) {
             required
           />
         </FloatingLabel>
-        <button type="submit" onClick={handleComment} className="search-button">
+        <button type="submit" className="search-button">
           Comment
         </button>
       </form>

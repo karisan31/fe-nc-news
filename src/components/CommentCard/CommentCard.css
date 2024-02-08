@@ -15,3 +15,17 @@
 .footer {
   background-color: tan;
 }
+
+.delete-button {
+  position: absolute;
+  bottom: 53px;
+  right: -25px;
+  transform: translate(-50%);
+  background-color: rgb(196, 152, 132);
+  color: #fff;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
+  }
+}
