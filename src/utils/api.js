@@ -59,3 +59,9 @@ export const postComment = (articleID, newComment) => {
       throw err;
     });
 };
+
+export const deleteComment = (commentID) => {
+  return ncNewsData.delete(`comments/${commentID}`).catch((err) => {
+    throw err;
+  });
+};

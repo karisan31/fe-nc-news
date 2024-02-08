@@ -44,6 +44,7 @@ export default function CommentList() {
                   body={comment.body}
                   votes={comment.votes}
                   created_at={comment.created_at}
+                  commentID={comment.comment_id}
                 />
               );
             })}

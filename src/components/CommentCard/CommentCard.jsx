@@ -1,20 +1,49 @@
 import "./CommentCard.css";
 import Card from "react-bootstrap/Card";
+import UserContext from "../../contexts/UserContext";
+import { useContext, useState } from "react";
+import { deleteComment } from "../../utils/api";
 
 export default function CommentCard(props) {
-  const { author, body, created_at, votes } = props;
+  const { author, body, commentID, created_at, votes } = props;
+  const { loggedInUser } = useContext(UserContext);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleDelete = () => {
+    setSuccessMessage("Your comment has been deleted");
+    deleteComment(commentID).catch((err) => {
+      setSuccessMessage(null);
+      setError({ msg: "Something went wrong, please try again." });
+    });
+  };
+
   return (
-    <Card className="card">
-      <Card.Header className="header">Created At: {created_at}</Card.Header>
-      <Card.Body className="content">
-        <blockquote className="blockquote mb-0">
-          <p>"{body}"</p>
-          <footer className="blockquote-footer">
-            <cite title="Source Title">{author}</cite>
-          </footer>
-        </blockquote>
-      </Card.Body>
-      <Card.Footer className="footer">Votes: {votes}</Card.Footer>
-    </Card>
+    <>
+      <Card className="card">
+        <Card.Header className="header">
+          Created At: {created_at}{" "}
+          {author === loggedInUser.username ? (
+            <button className="delete-button" onClick={handleDelete}>
+              Delete
+            </button>
+          ) : null}
+        </Card.Header>
+        <Card.Body className="content">
+          <blockquote className="blockquote mb-0">
+            <p>"{body}"</p>
+            <footer className="blockquote-footer">
+              <cite title="Source Title">{author}</cite>
+            </footer>
+          </blockquote>
+        </Card.Body>
+        <Card.Footer className="footer">Votes: {votes}</Card.Footer>
+      </Card>
+      {!error ? (
+        <p className="success-message">{successMessage}</p>
+      ) : (
+        <Error error={error} />
+      )}
+    </>
   );
 }
