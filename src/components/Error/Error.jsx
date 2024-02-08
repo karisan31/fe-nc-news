@@ -1,4 +1,7 @@
 export default function Error({ error }) {
+  if (error.msg) {
+    return <p>{error.msg}</p>;
+  }
   return (
     <>
       <div className="jumbotron jumbotron-fluid py-7 mt-5">

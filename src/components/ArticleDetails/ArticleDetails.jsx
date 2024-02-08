@@ -9,6 +9,7 @@ import CommentList from "../CommentList/CommentList";
 import Error from "../Error/Error";
 import Loading from "../Loading/Loading";
 import Votes from "../Votes/Votes";
+import CommentPost from "../CommentPost/CommentPost";
 
 export default function ArticleDetails() {
   const [article, setArticle] = useState({});
@@ -54,6 +55,8 @@ export default function ArticleDetails() {
               className={styles.singleArticleImage}
             />
             <p className={styles.singleArticleBody}>{article.body}</p>
+            <br />
+            <CommentPost articleID={article.article_id} />
             <br />
             <p className={styles.commentCount}>
               Comment Count: {article.comment_count}

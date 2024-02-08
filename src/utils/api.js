@@ -17,14 +17,41 @@ export const getArticles = (articleID) => {
 };
 
 export const getComments = (articleID) => {
-  return ncNewsData.get(`articles/${articleID}/comments`).then(({ data }) => {
-    return { data };
-  });
+  return ncNewsData
+    .get(`articles/${articleID}/comments`)
+    .then(({ data }) => {
+      return { data };
+    })
+    .catch((err) => {
+      throw err;
+    });
 };
 
 export const patchVotes = (articleID, updateVote) => {
   return ncNewsData
     .patch(`articles/${articleID}`, updateVote)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+
+export const getUsers = () => {
+  return ncNewsData
+    .get("/users")
+    .then(({ data }) => {
+      return { data };
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+
+export const postComment = (articleID, newComment) => {
+  return ncNewsData
+    .post(`articles/${articleID}/comments`, newComment)
     .then((response) => {
       return response.data;
     })
