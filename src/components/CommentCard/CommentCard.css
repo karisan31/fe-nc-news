@@ -26,6 +26,11 @@
   transition: background-color 0.5s ease;
 
   &:hover {
-    box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
+    border-color: #c26032;
+    box-shadow: 0 0 10px rgba(124, 46, 46, 0.8);
   }
+}
+
+.success-message {
+  text-align: center;
 }
