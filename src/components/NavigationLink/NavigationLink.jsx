@@ -11,7 +11,7 @@ export default function NavigationLink(props) {
           {linkDestination}
         </Link>
       ) : (
-        <Link className="nav-link" to={`/`}>
+        <Link className="nav-link" to="/">
           Home
         </Link>
       )}
