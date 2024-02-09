@@ -48,8 +48,12 @@ function CommentPost(props) {
         <button type="submit" className="search-button">
           Comment
         </button>
+        {!error ? (
+          <p className="success-message">{successMessage}</p>
+        ) : (
+          <Error error={error} />
+        )}
       </form>
-      {!error ? <p>{successMessage}</p> : <Error error={error} />}
     </>
   );
 }

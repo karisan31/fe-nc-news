@@ -1,4 +1,4 @@
-.user-card {
+.topic-card {
   flex-grow: 1;
   border: 1px solid hsl(0, 0%, 80%);
   border-radius: 10px;
@@ -6,35 +6,31 @@
   padding: 20px;
   margin: 10px;
   text-align: center;
-  width: 250px;
-  max-width: 250px;
+  width: 21rem;
+  max-width: 21rem;
   height: 200px;
   max-height: 200px;
   display: inline-block;
   position: relative;
 }
 
-.username {
+.topic-name {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-size: medium;
+  font-size: x-large;
   text-align: center;
   justify-content: center;
+  margin-top: 5px;
+  margin-bottom: -5px;
   margin-left: 30px;
   margin-right: 30px;
 }
 
-.avatar {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-height: 40px;
-  min-width: 40px;
-  max-height: 70px;
-  max-width: 70px;
+.topic-desc {
+  position: relative;
+  bottom: 7px;
 }
 
-.login-button {
+.topic-button {
   position: absolute;
   bottom: 20px;
   left: 50%;

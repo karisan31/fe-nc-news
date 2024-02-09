@@ -17,14 +17,9 @@ export const getArticles = (articleID) => {
 };
 
 export const getComments = (articleID) => {
-  return ncNewsData
-    .get(`articles/${articleID}/comments`)
-    .then(({ data }) => {
-      return { data };
-    })
-    .catch((err) => {
-      throw err;
-    });
+  return ncNewsData.get(`articles/${articleID}/comments`).then(({ data }) => {
+    return { data };
+  });
 };
 
 export const patchVotes = (articleID, updateVote) => {
@@ -32,9 +27,6 @@ export const patchVotes = (articleID, updateVote) => {
     .patch(`articles/${articleID}`, updateVote)
     .then((response) => {
       return response.data;
-    })
-    .catch((err) => {
-      throw err;
     });
 };
 
@@ -54,14 +46,15 @@ export const postComment = (articleID, newComment) => {
     .post(`articles/${articleID}/comments`, newComment)
     .then((response) => {
       return response.data;
-    })
-    .catch((err) => {
-      throw err;
     });
 };
 
 export const deleteComment = (commentID) => {
-  return ncNewsData.delete(`comments/${commentID}`).catch((err) => {
-    throw err;
+  return ncNewsData.delete(`comments/${commentID}`);
+};
+
+export const getTopics = () => {
+  return ncNewsData.get("/topics").then(({ data }) => {
+    return { data };
   });
 };
