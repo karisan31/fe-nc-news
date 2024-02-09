@@ -6,7 +6,7 @@ import Loading from "../Loading/Loading";
 import { useSearchParams } from "react-router-dom";
 
 export default function ArticleList() {
-  const [articlesData, setArticlesData] = useState(null);
+  const [articlesData, setArticlesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,10 +23,6 @@ export default function ArticleList() {
       });
   }, [topicQuery]);
 
-  if (error) {
-    return <Error error={error} />;
-  }
-
   return (
     <>
       <div className="jumbotron jumbotron-fluid">
@@ -38,9 +34,15 @@ export default function ArticleList() {
                 {topicQuery.slice(0, 1).toUpperCase() + topicQuery.slice(1)}
               </h1>
               <hr className="my-4" />
-              <p className="lead">
-                You are now viewing all {topicQuery} articles. Read away!
-              </p>{" "}
+              {articlesData.length === 0 ? (
+                <p className="lead">
+                  Seems as though no {topicQuery} articles exist.
+                </p>
+              ) : (
+                <p className="lead">
+                  You are now viewing all {topicQuery} articles. Read away!
+                </p>
+              )}
             </>
           ) : (
             <>
@@ -55,7 +57,7 @@ export default function ArticleList() {
         </div>
       </div>
       {error ? (
-        <p>{error}</p>
+        <p>{error.msg}</p>
       ) : (
         <section className={styles.articleList}>
           {isLoading ? (

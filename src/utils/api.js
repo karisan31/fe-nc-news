@@ -16,9 +16,6 @@ export const getArticles = (searchParam) => {
   return ncNewsData.get(url).then(({ data }) => {
     return { data };
   });
-  // .catch((err) => {
-  //   throw err;
-  // });
 };
 
 export const getComments = (articleID) => {
