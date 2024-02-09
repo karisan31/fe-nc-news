@@ -25,7 +25,7 @@ export default function ArticleDetails() {
   ];
 
   useEffect(() => {
-    getArticles(article_id)
+    getArticles(+article_id)
       .then((response) => {
         setArticle(response.data.article);
         setIsLoading(false);

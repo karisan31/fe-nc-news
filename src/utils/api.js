@@ -4,16 +4,21 @@ const ncNewsData = axios.create({
   baseURL: "https://backend-recieve-nc-news.onrender.com/api/",
 });
 
-export const getArticles = (articleID) => {
-  const url = articleID ? `articles/${articleID}` : `articles`;
-  return ncNewsData
-    .get(url)
-    .then(({ data }) => {
-      return { data };
-    })
-    .catch((err) => {
-      throw err;
-    });
+export const getArticles = (searchParam) => {
+  //const url = articleID ? `articles/${articleID}` : `articles`;
+  let url = "articles";
+  if (typeof searchParam === "number") {
+    url += `/${searchParam}`;
+  } else if (typeof searchParam === "string") {
+    url += `?topic=${searchParam}`;
+  }
+
+  return ncNewsData.get(url).then(({ data }) => {
+    return { data };
+  });
+  // .catch((err) => {
+  //   throw err;
+  // });
 };
 
 export const getComments = (articleID) => {
