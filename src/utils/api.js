@@ -4,18 +4,51 @@ const ncNewsData = axios.create({
   baseURL: "https://backend-recieve-nc-news.onrender.com/api/",
 });
 
-export const getArticles = (searchParam) => {
-  //const url = articleID ? `articles/${articleID}` : `articles`;
-  let url = "articles";
-  if (typeof searchParam === "number") {
-    url += `/${searchParam}`;
-  } else if (typeof searchParam === "string") {
-    url += `?topic=${searchParam}`;
+export const getArticles = (articleID, topic, sort_by, order) => {
+  let url = articleID ? `articles/${articleID}` : `articles`;
+  // let url = "articles";
+  // if (typeof searchParam === "number") {
+  //   url += `/${searchParam}`;
+  // } else if (typeof searchParam === "string") {
+  //   url += `?topic=${searchParam}`;
+  // }
+
+  // return ncNewsData.get(url).then(({ data }) => {
+  //   return { data };
+  // });
+
+  let params = {};
+
+  if (topic) {
+    params.topic = topic;
   }
 
-  return ncNewsData.get(url).then(({ data }) => {
-    return { data };
-  });
+  if (sort_by) {
+    params.sort_by = sort_by;
+  }
+
+  if (order) {
+    params.order = order;
+  }
+
+  console.log(
+    Object.entries(params)
+      .map(([key, value]) => `${key}=${value}`)
+      .join("&")
+  );
+
+  return ncNewsData
+    .get(url, {
+      params,
+      paramsSerializer: function paramsSerializer(params) {
+        return Object.entries(params)
+          .map(([key, value]) => `${key}=${value}`)
+          .join("&");
+      },
+    })
+    .then(({ data }) => {
+      return { data };
+    });
 };
 
 export const getComments = (articleID) => {
