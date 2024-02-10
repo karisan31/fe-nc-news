@@ -6,17 +6,6 @@ const ncNewsData = axios.create({
 
 export const getArticles = (articleID, topic, sort_by, order) => {
   let url = articleID ? `articles/${articleID}` : `articles`;
-  // let url = "articles";
-  // if (typeof searchParam === "number") {
-  //   url += `/${searchParam}`;
-  // } else if (typeof searchParam === "string") {
-  //   url += `?topic=${searchParam}`;
-  // }
-
-  // return ncNewsData.get(url).then(({ data }) => {
-  //   return { data };
-  // });
-
   let params = {};
 
   if (topic) {
@@ -30,12 +19,6 @@ export const getArticles = (articleID, topic, sort_by, order) => {
   if (order) {
     params.order = order;
   }
-
-  console.log(
-    Object.entries(params)
-      .map(([key, value]) => `${key}=${value}`)
-      .join("&")
-  );
 
   return ncNewsData
     .get(url, {
