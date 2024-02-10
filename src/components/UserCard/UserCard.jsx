@@ -24,7 +24,9 @@ export default function UserCard(props) {
         >
           Login
         </button>
-      ) : null}
+      ) : (
+        <p className="logged">Logged In!</p>
+      )}
     </section>
   );
 }

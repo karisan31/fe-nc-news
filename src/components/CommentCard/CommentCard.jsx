@@ -19,6 +19,8 @@ export default function CommentCard(props) {
     });
   };
 
+  const dateString = new Date(created_at);
+
   return (
     <>
       {successMessage ? (
@@ -27,7 +29,7 @@ export default function CommentCard(props) {
         <>
           <Card className="card">
             <Card.Header className="header">
-              Created At: {created_at}{" "}
+              Created At: {dateString.toLocaleString()}{" "}
               {author === loggedInUser.username ? (
                 <button className="delete-button" onClick={handleDelete}>
                   Delete

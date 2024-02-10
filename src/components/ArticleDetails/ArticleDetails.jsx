@@ -35,6 +35,8 @@ export default function ArticleDetails() {
       });
   }, [article_id]);
 
+  const dateString = new Date(article.created_at);
+
   if (error) {
     return <Error error={error.response} />;
   }
@@ -48,7 +50,7 @@ export default function ArticleDetails() {
           <section className={styles.singleArticle}>
             <h2 className={styles.singleArticleTitle}>{article.title}</h2>
             <p className={styles.singleArticleDetails}>
-              Written by {article.author} at {article.created_at}
+              Posted by {article.author} on {dateString.toLocaleDateString()}
             </p>
             <img
               src={article.article_img_url}

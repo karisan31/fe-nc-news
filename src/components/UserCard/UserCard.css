@@ -48,3 +48,14 @@
     box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
   }
 }
+
+.logged {
+  position: absolute;
+  border-radius: 8px;
+  bottom: 8px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #33bb21;
+  padding: 8px;
+  color: #ffffff;
+}
