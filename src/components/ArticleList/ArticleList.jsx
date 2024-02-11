@@ -92,7 +92,7 @@ export default function ArticleList() {
         <section className={styles.articleList}>
           {isLoading ? (
             <Loading />
-          ) : (
+          ) : articlesData.length === 0 ? null : (
             <>
               <div className={styles.sorting}>
                 <Dropdown onSelect={handleSortChange}>

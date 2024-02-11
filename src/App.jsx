@@ -9,6 +9,7 @@ import { useState } from "react";
 import UserContext from "./contexts/UserContext";
 import UserList from "./components/UserList/UserList";
 import TopicList from "./components/TopicList/TopicList";
+import Error from "./components/Error/Error";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -26,6 +27,7 @@ function App() {
           <Route path="/articles/:article_id" element={<ArticleDetails />} />
           <Route path="/users" element={<UserList />} />
           <Route path="/topics" element={<TopicList />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </UserContext.Provider>
