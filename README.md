@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-This project is the creation of my news [website](https://kari-nc-news.netlify.app/) which serves as the frontend to my [RESTful API](https://backend-recieve-nc-news.onrender.com/api]). (The link to the GitHub repository for my backend project can be found [here](https://github.com/karisan31/be-nc-news)).
+This project is the creation of my news [website](https://kari-nc-news.netlify.app/) which serves as the frontend to my [RESTful API](https://backend-recieve-nc-news.onrender.com/api). (The link to the GitHub repository for my backend project can be found [here](https://github.com/karisan31/be-nc-news)).
 
 This website is a dynamic and responsive platform designed to provide users with relevant news articles. With a user-friendly interface, seamless navigations and a focus on delivering a good user experience, this website aims to cater to diverse interests and offer users a place have a discussion about their favourite topics.
 
